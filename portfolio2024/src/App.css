@@ -11,3 +11,6 @@
   font-family: 'Nunito', sans-serif; /* Use fallback in case the font doesn't load */
 
 }
+.typical-wrapper::after {
+  content: none; /* Hides the blinking cursor */
+}

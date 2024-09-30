@@ -5,15 +5,25 @@ import { Navbar } from "./components/Navbar";
 import { About } from "./components/About.Jsx";
 import { Contact } from "./components/Contact";
 import { Projects } from "./components/Projects";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
-    <Box >
+    <Box>
       <Navbar />
-      <Landing />
-      <About />
-      <Contact />
-      <Projects />
+      <Box id="landing">
+        <Landing />
+      </Box>
+      <Box id="about">
+        <About />
+      </Box>
+      <Box id="projects">
+        <Projects />
+      </Box>
+      <Box id="contact">
+        <Contact />
+      </Box>
+      <ScrollToTop />
     </Box>
   );
 }
