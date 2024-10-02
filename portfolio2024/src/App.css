@@ -2,6 +2,10 @@
   font-family: 'Nunito';
   src: url('../public/fonts/Nunito-Regular.ttf');
 }
+@font-face {
+  font-family: 'Bebas';
+  src: url('../public/fonts/BebasNeue-Regular.ttf');
+}
 
 * {
   box-sizing: border-box;
@@ -13,4 +17,8 @@
 }
 .typical-wrapper::after {
   content: none; /* Hides the blinking cursor */
+}
+.hexagon{
+    stroke: black;
+    stroke-width: 10px;
 }

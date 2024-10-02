@@ -32,9 +32,9 @@ export const About = () => {
           container
           sx={{
             boxShadow: "3",
-            height: "50%",
+            minHeight: "50%",
             width: "50%",
-            marginTop: "10rem",
+            marginTop: "5rem",
           }}
         >
           <Grid2 size={4}>

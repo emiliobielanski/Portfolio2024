@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "../App.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { FaLaptopCode } from "react-icons/fa";
 
 // Create a custom theme
 const theme = createTheme({
@@ -35,16 +36,15 @@ export const Navbar = () => {
     <ThemeProvider theme={theme}>
       <AppBar sx={{ backgroundColor: "#424242", color: "white" }}>
         <Toolbar sx={{ color: "white" }}>
-          <Typography
-            fontFamily={"nunito"}
-            fontWeight={500}
-            marginRight={"20%"}
-            marginLeft={"10rem"}
-            color="textPrimary"
-          >
-            Emilio Bielanski
-          </Typography>
-          <Grid2 container spacing={15} marginRight={10}>
+          <Box sx={{marginLeft: "2%"}}>
+          <Button>
+            <Link to="landing" smooth={true} duration={400}>
+              <FaLaptopCode fontSize={"22px"} fill="white" />
+              <Typography fontFamily="Bebas" fontSize={"22px"} color="white">Emilio Bielanski</Typography>
+            </Link>
+          </Button>
+          </Box>
+          <Grid2 container spacing={15} marginRight={10} marginLeft={"24%"}>
             <Box>
               <Button sx={{ textTransform: "none", fontSize: "1rem" }}>
                 <Link to="about" smooth={true} duration={500}>
@@ -69,7 +69,7 @@ export const Navbar = () => {
           </Grid2>
           <Box>
             <Button
-              href="https://www.linkedin.com/in/emilio-bielanski-345499273/" 
+              href="https://www.linkedin.com/in/emilio-bielanski-345499273/"
               sx={{ color: "white" }}
             >
               <LinkedInIcon style={{ fill: "white" }} />

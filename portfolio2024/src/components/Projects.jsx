@@ -1,7 +1,9 @@
 import { Box, Grid2, Typography } from "@mui/material";
-import { IoLogoCss3, IoLogoJavascript  } from "react-icons/io5";
+import { IoLogoCss3, IoLogoJavascript } from "react-icons/io5";
 import { FaReact, FaHtml5 } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
+import Hexagon from "react-hexagon";
+
 export const Projects = () => {
   return (
     <Box
@@ -24,27 +26,22 @@ export const Projects = () => {
             "linear-gradient(to right, transparent, #424242, transparent)",
         }}
       ></Box>
-      <Grid2
-        container
-        justifyContent={"center"}
-        spacing={3}
-        margin={"4rem"}
-      >
+      <Grid2 container justifyContent={"center"} spacing={3} margin={"4rem"}>
         <Grid2 item>
           <Box textAlign={"center"}>
-            <FaHtml5 size={"60"}  />
+            <FaHtml5 size={"60"} />
             <Typography>HTML5</Typography>
           </Box>
         </Grid2>
         <Grid2 item>
           <Box sx={{ textAlign: "center" }}>
-            <IoLogoCss3 size={"60"}  />
+            <IoLogoCss3 size={"60"} />
             <Typography>CSS</Typography>
           </Box>
         </Grid2>
         <Grid2 item>
           <Box sx={{ textAlign: "center" }}>
-            <IoLogoJavascript size={"60"}  />
+            <IoLogoJavascript size={"60"} />
             <Typography>JavaScript</Typography>
           </Box>
         </Grid2>
@@ -56,11 +53,12 @@ export const Projects = () => {
         </Grid2>
         <Grid2 item>
           <Box sx={{ textAlign: "center" }}>
-            <FaReact size={"60"} />
+            <Hexagon className="hexagon">
+              <FaReact size={"100%"} />
+            </Hexagon>
             <Typography>React</Typography>
           </Box>
         </Grid2>
-       
       </Grid2>
     </Box>
   );
