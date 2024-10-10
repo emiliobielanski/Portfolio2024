@@ -53,11 +53,10 @@ export const Navbar = () => {
           <Grid2
             container
             sx={{
-
               display: "flex",
               justifyContent: "space-between",
               flexDirection: { sm: "row" },
-              gap: {sm: 15, xs: 0 },
+              gap: { sm: 15, xs: 0 },
             }}
           >
             <Box>
@@ -84,6 +83,7 @@ export const Navbar = () => {
           </Grid2>
           <Box>
             <Button
+              href="https://www.linkedin.com/in/emilio-bielanski-345499273/"
               href="https://www.linkedin.com/in/emilio-bielanski-345499273/"
               sx={{ color: "white" }}
             >
