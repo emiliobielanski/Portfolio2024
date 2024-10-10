@@ -1,16 +1,13 @@
 @font-face {
-  font-family: 'Nunito';
-  src: url('../public/fonts/Nunito-Regular.ttf');
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Regular.ttf");
 }
 
-body,html{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   color: rgb(0, 0, 0);
-  font-family: 'Nunito', sans-serif; /* Use fallback in case the font doesn't load */
+  font-family: "Nunito"; /* Use fallback in case the font doesn't load */
+}
 
-}
-.typical-wrapper::after {
-  content: none; /* Hides the blinking cursor */
-}

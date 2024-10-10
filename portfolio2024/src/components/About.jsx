@@ -1,6 +1,11 @@
-import { Box, Grid2, Typography } from "@mui/material";
+import { Box, Container, Grid2, Typography } from "@mui/material";
 import laptop from "../assets/picture/laptop.png";
+import { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
+import { motion } from "framer-motion";
+
 export const About = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
     <>
       <Box
@@ -73,6 +78,7 @@ export const About = () => {
                   textAlign: "center",
                   fontFamily: "nunito",
                   padding: "1rem",
+                  display: isExpanded ? "block" : "none",
                 }}
               >
                 I graduated a higher vocational education within Frontend
@@ -85,6 +91,25 @@ export const About = () => {
                 learning and challenging myself will be a daily occurence.
               </Typography>
             </Typography>
+            <Container
+              sx={{
+                borderTop: "1px solid #424242",
+                display: "flex",
+                justifyContent: "flex-end",
+                fontSize: "28px",
+              }}
+            >
+              <motion.div
+                animate={{ rotateX: isExpanded ? 180 : 0 }}
+                onClick={() => {
+                  if (isExpanded) {
+                    setIsExpanded(false);
+                  } else setIsExpanded(true);
+                }}
+              >
+                <IoIosArrowDown></IoIosArrowDown>
+              </motion.div>
+            </Container>
           </Grid2>
         </Grid2>
       </Box>

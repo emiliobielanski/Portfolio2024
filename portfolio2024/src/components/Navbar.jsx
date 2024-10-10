@@ -33,7 +33,13 @@ const theme = createTheme({
 export const Navbar = () => {
   return (
     <ThemeProvider theme={theme}>
-      <AppBar sx={{ backgroundColor: "#424242", color: "white" }}>
+      <AppBar
+        sx={{
+          backgroundColor: "#424242",
+          color: "white",
+          display: { xs: "none", sm: "block" },
+        }}
+      >
         <Toolbar sx={{ color: "white" }}>
           <Typography
             fontFamily={"nunito"}
@@ -44,7 +50,16 @@ export const Navbar = () => {
           >
             Emilio Bielanski
           </Typography>
-          <Grid2 container spacing={15} marginRight={10}>
+          <Grid2
+            container
+            sx={{
+
+              display: "flex",
+              justifyContent: "space-between",
+              flexDirection: { sm: "row" },
+              gap: {sm: 15, xs: 0 },
+            }}
+          >
             <Box>
               <Button sx={{ textTransform: "none", fontSize: "1rem" }}>
                 <Link to="about" smooth={true} duration={500}>
@@ -69,7 +84,7 @@ export const Navbar = () => {
           </Grid2>
           <Box>
             <Button
-              href="https://www.linkedin.com/in/emilio-bielanski-345499273/" 
+              href="https://www.linkedin.com/in/emilio-bielanski-345499273/"
               sx={{ color: "white" }}
             >
               <LinkedInIcon style={{ fill: "white" }} />
