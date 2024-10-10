@@ -10,17 +10,23 @@ export const About = () => {
     <>
       <Box
         sx={{
-          height: "100vh",
+          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "top",
+          justifyContent: "center",
           alignItems: "center",
-          marginTop: "10rem",
+          padding: { xs: "3rem 1rem", md: "8rem 2rem" },
+          marginTop: { xs: "10rem" },
         }}
       >
         <Typography
           variant="h2"
-          sx={{ fontSize: "50px", fontFamily: "Nunito", marginTop: "4rem" }}
+          sx={{
+            fontSize: { xs: "32px", md: "50px" },
+            fontFamily: "Nunito",
+            marginBottom: "1rem",
+            textAlign: "center",
+          }}
         >
           About
         </Typography>
@@ -30,6 +36,7 @@ export const About = () => {
             height: "2px",
             background:
               "linear-gradient(to right, transparent, #424242, transparent)",
+            marginBottom: "3rem",
           }}
         ></Box>
 
@@ -37,79 +44,106 @@ export const About = () => {
           container
           sx={{
             boxShadow: "3",
-            minHeight: "50%",
-            width: "50%",
-            marginTop: "5rem",
+            width: { xs: "90%", md: "60%" },
+            height: { sm: "450px", xs: "700px" }, // Set a fixed height for the box
+            backgroundColor: "#f9f9f9",
+            borderRadius: "10px",
+            overflow: "hidden",
+            position: "relative",
+
+            flexDirection: "row",
           }}
         >
-          <Grid2 size={4}>
+          <Grid2 size={{ sx: 12, sm: 4 }}>
             <Box
               component="img"
               sx={{
-                height: "100%",
+                height: { xs: "225px", sm: "450px" },
                 width: "100%",
                 objectFit: "cover",
-                objectPosition: "25%",
               }}
               src={laptop}
-              alt="Profile picture of a handsome man"
+              alt="A laptop with code on it"
             />
           </Grid2>
 
-          <Grid2 item size={8}>
-            <Typography
+          <Grid2 item size={{ xs: 12, sm: 8 }}>
+            <Box
               sx={{
+                padding: { xs: "1rem", md: "2rem" },
+                display: { xs: "flex" },
+                flexDirection: "column",
                 textAlign: "center",
-                padding: "2rem",
-                fontFamily: "nunito",
-                fontSize: "20px",
-                fontWeight: 500,
               }}
             >
-              A little about me
-            </Typography>
-            <Typography sx={{ textAlign: "center", fontFamily: "nunito" }}>
-              I am a creative and passionate frontend developer with a drive to
-              constantly learn. I seek new and exciting challenges where i can
-              apply my own skills to problem solve whilst developing my
-              repertoire of both technical and personal knowledge.
               <Typography
                 sx={{
-                  textAlign: "center",
-                  fontFamily: "nunito",
-                  padding: "1rem",
-                  display: isExpanded ? "block" : "none",
+                  fontFamily: "Nunito",
+                  fontSize: { xs: "20px", md: "24px" },
+                  fontWeight: 700,
+                  marginBottom: "1rem",
                 }}
               >
-                I graduated a higher vocational education within Frontend
-                Development in Stockholm, Sweden 2024. Currently working as a
-                psychiatric care assistant where I have learnt alot about
-                greeting and treating patients with psychiatric needs, I am now
-                searching for a developer-focused role. With my education in
-                Frontend Development and skills in React, React Native,
-                TypeScript and JavaScript I hope to find an environment where
-                learning and challenging myself will be a daily occurence.
+                A little about me
               </Typography>
-            </Typography>
-            <Container
-              sx={{
-                borderTop: "1px solid #424242",
-                display: "flex",
-                justifyContent: "flex-end",
-                fontSize: "28px",
-              }}
-            >
-              <motion.div
-                animate={{ rotateX: isExpanded ? 180 : 0 }}
-                onClick={() => {
-                  if (isExpanded) {
-                    setIsExpanded(false);
-                  } else setIsExpanded(true);
+
+              <Typography
+                sx={{
+                  fontSize: { xs: "14px", md: "18px" },
+                  fontFamily: "Nunito",
+                  marginBottom: "1rem",
                 }}
               >
-                <IoIosArrowDown></IoIosArrowDown>
-              </motion.div>
-            </Container>
+                I am a creative and passionate frontend developer with a drive
+                to constantly learn. I seek new and exciting challenges where I
+                can apply my skills of problem-solving while developing my
+                repertoire of both technical and personal knowledge.
+              </Typography>
+
+              <Box
+                sx={{
+                  maxHeight: isExpanded ? "150px" : "0px", // Limit the height of the expanded text
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: { xs: "14px", md: "18px" },
+                    fontFamily: "Nunito",
+                    display: isExpanded ? "block" : "none",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  I graduated in Frontend Development in Stockholm, Sweden 2024.
+                  Currently working as a psychiatric care assistant, I am now
+                  searching for a developer-focused role where I can apply my
+                  skills in React, React Native, TypeScript, and JavaScript. I
+                  aim to find a challenging environment where learning is a
+                  daily occurrence.
+                </Typography>
+              </Box>
+
+              <Container
+                sx={{
+                  borderWidth: "2px 0 0 0",
+                  borderStyle: "solid",
+                  borderImage:
+                    "linear-gradient(to right, transparent, #AAA9AD , transparent) 1",
+                  display: "flex",
+                  justifyContent: "center",
+                  padding: "1rem 0",
+                  margin: " 1rem 0",
+                  cursor: "pointer",
+                }}
+                onClick={() => setIsExpanded(!isExpanded)}
+              >
+                <motion.div
+                  animate={{ rotateX: isExpanded ? 180 : 0 }}
+                  transition={{ duration: 1.2, type: "spring" }}
+                >
+                  <IoIosArrowDown size={30} />
+                </motion.div>
+              </Container>
+            </Box>
           </Grid2>
         </Grid2>
       </Box>

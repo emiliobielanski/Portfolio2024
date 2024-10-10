@@ -32,6 +32,7 @@ const ScrollToTop = () => {
           backgroundColor: 'grey',
           fill: 'white',
           zIndex: 10,
+          display: {xs: "none", sm: "block"}
         }}
       >
         <KeyboardArrowUpIcon />

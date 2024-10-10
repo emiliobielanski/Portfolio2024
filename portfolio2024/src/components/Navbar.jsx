@@ -37,15 +37,14 @@ export const Navbar = () => {
         sx={{
           backgroundColor: "#424242",
           color: "white",
-          display: { xs: "none", sm: "block" },
+          display: { xs: "none", sm: "block", md: "block" },
         }}
       >
         <Toolbar sx={{ color: "white" }}>
           <Typography
             fontFamily={"nunito"}
             fontWeight={500}
-            marginRight={"20%"}
-            marginLeft={"10rem"}
+            marginRight={"auto"}
             color="textPrimary"
           >
             Emilio Bielanski
@@ -54,7 +53,7 @@ export const Navbar = () => {
             container
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
               flexDirection: { sm: "row" },
               gap: { sm: 15, xs: 0 },
             }}
@@ -81,19 +80,20 @@ export const Navbar = () => {
               </Button>
             </Box>
           </Grid2>
-          <Box>
-            <Button
-              href="https://www.linkedin.com/in/emilio-bielanski-345499273/"
-              href="https://www.linkedin.com/in/emilio-bielanski-345499273/"
-              sx={{ color: "white" }}
-            >
-              <LinkedInIcon style={{ fill: "white" }} />
-            </Button>
-          </Box>
-          <Box>
-            <Button href="https://github.com/emiliobielanski">
-              <GitHubIcon style={{ fill: "white" }} />
-            </Button>
+          <Box marginLeft={"auto"} >
+            <Box>
+              <Button
+                href="https://www.linkedin.com/in/emilio-bielanski-345499273/"
+                sx={{ color: "white" }}
+              >
+                <LinkedInIcon style={{ fill: "white" }} />
+              </Button>
+            </Box>
+            <Box>
+              <Button href="https://github.com/emiliobielanski">
+                <GitHubIcon style={{ fill: "white" }} />
+              </Button>
+            </Box>
           </Box>
         </Toolbar>
       </AppBar>
