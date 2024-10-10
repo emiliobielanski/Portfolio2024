@@ -3,11 +3,7 @@
     src: url('../public/fonts/Nunito-Regular.ttf');
   }
   
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: white;
+  body, html {
     font-family: 'Nunito', sans-serif; /* Use fallback in case the font doesn't load */
 
   };
