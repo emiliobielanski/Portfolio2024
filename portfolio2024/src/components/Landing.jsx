@@ -38,8 +38,7 @@ export const Landing = () => {
     <Box
       sx={{
         marginTop: { sm: "64px" },
-        paddingTop: "5%",
-        height: "75vh",
+        height: "100vh",
         background: "linear-gradient(to bottom,#C8C6C4, #f9f9f9)",
         paddingBottom: "50px",
       }}
@@ -50,6 +49,7 @@ export const Landing = () => {
         sx={{ padding: "5%" }}
         alignItems="center"
         justifyContent="center"
+        flexDirection={"column"}
       >
         {/* Profile Picture Section */}
         <Grid2 item xs={12} sm={4} textAlign="center">
@@ -76,7 +76,7 @@ export const Landing = () => {
         </Grid2>
 
         {/* Name and Typical Text Section */}
-        <Grid2 item xs={12} sm={6}>
+        <Grid2 item xs={12} sm={6} marginBottom={"2rem"}>
           <Box
             sx={{
               display: "flex",
@@ -154,9 +154,9 @@ export const Landing = () => {
                   color: "#555",
                 }}
               >
-                I&apos;m passionate about web development, game design, and
-                always expanding my knowledge in new technologies. Let&apos;s
-                build something amazing together.
+                I&apos;m passionate about programming, web development, design
+                and its psychological ties, game development, music,
+                role-playing games... In short; I love learning.
               </Typography>
             </Box>
           </motion.div>

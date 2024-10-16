@@ -10,6 +10,7 @@ import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     <Box>
+     
       <Navbar />
       <Box id="landing">
         <Landing />
@@ -24,6 +25,7 @@ function App() {
         <Contact />
       </Box>
       <ScrollToTop />
+    
     </Box>
   );
 }

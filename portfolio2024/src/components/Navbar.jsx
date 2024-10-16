@@ -2,21 +2,22 @@ import { AppBar, Toolbar, Typography, Button, Box, Grid2 } from "@mui/material";
 import { Link } from "react-scroll";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "../App.css";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import "./SocialLinks";
+import SocialLinks from "./SocialLinks";
 
-// Create a custom theme
+
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#424242", // Background color for AppBar
+      main: "#424242", 
     },
     text: {
-      primary: "#ffffff", // Default text color
+      primary: "#ffffff", 
     },
   },
   typography: {
     fontFamily: "Nunito, sans-serif",
+    color: "white",
   },
   components: {
     MuiButton: {
@@ -24,12 +25,18 @@ const theme = createTheme({
         root: {
           textTransform: "none",
           fontSize: "1rem",
-          color: "#ffffff", // Default button text color
+          color: "white",
         },
       },
     },
   },
 });
+
+const navItems = [
+  { label: "About", to: "about" },
+  { label: "Projects", to: "projects" },
+  { label: "Contact", to: "contact" },
+];
 export const Navbar = () => {
   return (
     <ThemeProvider theme={theme}>
@@ -40,61 +47,38 @@ export const Navbar = () => {
           display: { xs: "none", sm: "block", md: "block" },
         }}
       >
-        <Toolbar sx={{ color: "white" }}>
-          <Typography
-            fontFamily={"nunito"}
-            fontWeight={500}
-            marginRight={"auto"}
-            color="textPrimary"
-          >
-            Emilio Bielanski
-          </Typography>
+        <Toolbar>
           <Grid2
             container
             sx={{
-              display: "flex",
-              justifyContent: "center",
+              width: "100%",
+              justifyContent: "space-between",
+              alignItems: "center",
               flexDirection: { sm: "row" },
-              gap: { sm: 15, xs: 0 },
             }}
           >
-            <Box>
-              <Button sx={{ textTransform: "none", fontSize: "1rem" }}>
-                <Link to="about" smooth={true} duration={500}>
-                  <Typography sx={{ color: "white" }}>About</Typography>
+            <Grid2 item size={1} sx={{ whiteSpace: "nowrap" }}>
+              <Button>
+                <Link to="landing" smooth={true} duration={500}>
+                  <Typography color="white">Emilio Bielanski</Typography>
                 </Link>
               </Button>
-            </Box>
-            <Box>
-              <Button sx={{ textTransform: "none", fontSize: "1rem" }}>
-                <Link to="projects" smooth={true} duration={500}>
-                  <Typography sx={{ color: "white" }}>Projects</Typography>
-                </Link>
-              </Button>
-            </Box>
-            <Box>
-              <Button sx={{ textTransform: "none", fontSize: "1rem" }}>
-                <Link to="contact" smooth={true} duration={500}>
-                  <Typography sx={{ color: "white" }}>Contact</Typography>
-                </Link>
-              </Button>
-            </Box>
+            </Grid2>
+
+            <Grid2 container gap={10} >
+              {navItems.map(({ label, to }, index) => (
+                <Box key={index}>
+                  <Button sx={{ textTransform: "none", fontSize: "1rem", "&:hover": {textDecoration: "4px underline grey"} }}>
+                    <Link to={to} smooth={true} duration={500}>
+                      <Typography color="white">{label}</Typography>
+                    </Link>
+                  </Button>
+                </Box>
+              ))}
+            </Grid2>
+
+            <SocialLinks />
           </Grid2>
-          <Box marginLeft={"auto"} >
-            <Box>
-              <Button
-                href="https://www.linkedin.com/in/emilio-bielanski-345499273/"
-                sx={{ color: "white" }}
-              >
-                <LinkedInIcon style={{ fill: "white" }} />
-              </Button>
-            </Box>
-            <Box>
-              <Button href="https://github.com/emiliobielanski">
-                <GitHubIcon style={{ fill: "white" }} />
-              </Button>
-            </Box>
-          </Box>
         </Toolbar>
       </AppBar>
     </ThemeProvider>

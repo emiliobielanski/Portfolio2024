@@ -3,6 +3,7 @@ import laptop from "../assets/picture/laptop.png";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { motion } from "framer-motion";
+import TitleBreak from "./TitleBreak";
 
 export const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -19,26 +20,7 @@ export const About = () => {
           marginTop: { xs: "10rem" },
         }}
       >
-        <Typography
-          variant="h2"
-          sx={{
-            fontSize: { xs: "32px", md: "50px" },
-            fontFamily: "Nunito",
-            marginBottom: "1rem",
-            textAlign: "center",
-          }}
-        >
-          About
-        </Typography>
-        <Box
-          sx={{
-            width: "60%",
-            height: "2px",
-            background:
-              "linear-gradient(to right, transparent, #424242, transparent)",
-            marginBottom: "3rem",
-          }}
-        ></Box>
+        <TitleBreak title="About" />
 
         <Grid2
           container
@@ -91,15 +73,14 @@ export const About = () => {
                 sx={{
                   fontSize: { xs: "14px", md: "18px" },
                   fontFamily: "Nunito",
-                  marginBottom: "1rem",
                 }}
               >
-                I am a creative and passionate frontend developer with a drive
-                to constantly learn. I seek new and exciting challenges where I
-                can apply my skills of problem-solving while developing my
-                repertoire of both technical and personal knowledge.
+                I graduated a higher vocational education in Frontend
+                Development at Jensen Yrkeshögskola in Sweden Stockholm in 2024.
+                Currently I am searching for a developer focused role to hone my
+                skills whilst building beautiful web services.
               </Typography>
-
+                <br />
               <Box
                 sx={{
                   maxHeight: isExpanded ? "150px" : "0px", // Limit the height of the expanded text
@@ -110,15 +91,14 @@ export const About = () => {
                     fontSize: { xs: "14px", md: "18px" },
                     fontFamily: "Nunito",
                     display: isExpanded ? "block" : "none",
-                    marginBottom: "1rem",
                   }}
                 >
-                  I graduated in Frontend Development in Stockholm, Sweden 2024.
-                  Currently working as a psychiatric care assistant, I am now
-                  searching for a developer-focused role where I can apply my
-                  skills in React, React Native, TypeScript, and JavaScript. I
-                  aim to find a challenging environment where learning is a
-                  daily occurrence.
+                  During my education, I got proficient in using the basics like
+                  HTML, CSS and JS. We also built apps with React, Mobile apps
+                  with Expo Go. During an internship of 3 months I also had the
+                  pleasure of working with TypeScript.
+                  <br />
+                  I now work as a psychiatric care assistant within Northern Stockholms Psychiatry. In my free time, I am studying computer science through Harvards CS50 Resources and coding websites like these to continously learn more!
                 </Typography>
               </Box>
 
