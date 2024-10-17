@@ -21,17 +21,18 @@ export const Projects = () => {
   return (
     <Box
       sx={{
-        height: "100vh",
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "top",
         alignItems: "center",
+
       }}
     >
      <TitleBreak title="Projects"/>
 
       {/* Skill Icons with Framer Motion */}
-      <Grid2 container gap={5} alignItems={"center"} textAlign={"center"} marginTop={2} marginBottom={5}>
+      <Grid2 container gap={5} alignItems={"center"} justifyContent={"center"} textAlign={"center"} marginTop={2} marginBottom={5}>
         {iconsData.map(({ icon, label }, index) => (
           <Grid2 item key={index}>
             <motion.div
@@ -70,7 +71,7 @@ export const Projects = () => {
         ))}
       </Grid2>
 
-      <Grid2 container gap={6}>
+      <Grid2 container gap={6} flexDirection={{xs: "column", sm: "row"}}>
         <ProjectsCard title="Broken Records" description="A mock e-shop marketplace for vinyl records" link="https://brokenrecords-vwsy.vercel.app/" image={brokenRecords}/>
         <ProjectsCard title="omdbAPI Movie Search" description="Search up your favorite movies using the omdbAPI" link="https://omdb-api-website.vercel.app/" image={omdbapi}/>
         <ProjectsCard title="Mobile Chat App Repo" description="Github repo for a mobile chat app developed using Expo Go" link="https://github.com/emiliobielanski/Chat-App" image={codeMobileChat}/>

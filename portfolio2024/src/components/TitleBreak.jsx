@@ -12,6 +12,7 @@ const TitleBreak = ({title}) => {
           fontFamily: "Nunito",
           marginBottom: "0.2rem",
           textAlign: "center",
+          marginTop: "5rem"
         }}
       >
         {title}

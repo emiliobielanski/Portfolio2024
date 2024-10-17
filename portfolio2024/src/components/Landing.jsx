@@ -38,7 +38,7 @@ export const Landing = () => {
     <Box
       sx={{
         marginTop: { sm: "64px" },
-        height: "100vh",
+        minHeight: "100vh",
         background: "linear-gradient(to bottom,#C8C6C4, #f9f9f9)",
         paddingBottom: "50px",
       }}

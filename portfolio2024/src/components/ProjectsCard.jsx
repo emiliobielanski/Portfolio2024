@@ -3,7 +3,7 @@ import { Box, Link, Typography } from "@mui/material";
 // eslint-disable-next-line react/prop-types
 export const ProjectsCard = ({title, description, link, image}) => {
   return (
-    <Link href={link} underline="none" target="_blank" rel="noopener">
+    <Link href={link} underline="none">
       <Box
         sx={{
           border: "1px solid #ccc",
