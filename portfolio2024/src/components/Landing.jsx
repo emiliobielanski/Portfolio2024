@@ -37,7 +37,6 @@ export const Landing = () => {
   return (
     <Box
       sx={{
-        marginTop: { sm: "64px" },
         minHeight: "100vh",
         background: "linear-gradient(to bottom,#C8C6C4, #f9f9f9)",
         paddingBottom: "50px",
@@ -95,7 +94,7 @@ export const Landing = () => {
                 sx={{
                   fontFamily: "Nunito",
                   fontWeight: "bold",
-                  fontSize: { xs: "2rem", sm: "2.5rem" }, // Responsive font size
+                  fontSize: { xs: "2rem", sm: "2.5rem" },
                   paddingBottom: "1rem",
                   color: "#333",
                 }}
@@ -104,7 +103,7 @@ export const Landing = () => {
               </Typography>
             </motion.div>
             <Typography
-              sx={{ fontFamily: "Nunito", fontSize: "1.2rem", color: "#555" }}
+              sx={{ fontFamily: "Nunito", fontSize: "1.2rem", color: "grey" }}
             >
               <Typical
                 steps={[1300, "Frontend Developer"]}

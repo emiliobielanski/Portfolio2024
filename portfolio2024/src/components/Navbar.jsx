@@ -1,18 +1,29 @@
-import { AppBar, Toolbar, Typography, Button, Box, Grid2 } from "@mui/material";
+import { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Drawer,
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
+import { Menu as MenuIcon } from "@mui/icons-material";
 import { Link } from "react-scroll";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import "../App.css";
-import "./SocialLinks";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import SocialLinks from "./SocialLinks";
-
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#424242", 
+      main: "#424242",
     },
     text: {
-      primary: "#ffffff", 
+      primary: "#ffffff",
     },
   },
   typography: {
@@ -37,48 +48,90 @@ const navItems = [
   { label: "Projects", to: "projects" },
   { label: "Contact", to: "contact" },
 ];
+
 export const Navbar = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const isMobile = useMediaQuery("(max-width:601px)");
+
+  const handleDrawerToggle = () => {
+    setDrawerOpen(!drawerOpen);
+  };
+
+  const drawerContent = (
+    <Box
+      sx={{ width: 250, bgcolor: "#424242", height: "100%" }}
+      onClick={handleDrawerToggle}
+    >
+      <List>
+        {navItems.map(({ label, to }, index) => (
+          <ListItem button key={index} >
+            <Link to={to} smooth={true} duration={500} >
+              <ListItemText primary={label} onClick={handleDrawerToggle} primaryTypographyProps={{ color: "white" }} />
+            </Link>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   return (
     <ThemeProvider theme={theme}>
-      <AppBar
-        sx={{
-          backgroundColor: "#424242",
-          color: "white",
-          display: { xs: "none", sm: "block", md: "block" },
-        }}
-      >
-        <Toolbar>
-          <Grid2
-            container
-            sx={{
-              width: "100%",
-              justifyContent: "space-between",
-              alignItems: "center",
-              flexDirection: { sm: "row" },
-            }}
-          >
-            <Grid2 item size={1} sx={{ whiteSpace: "nowrap" }}>
+      <AppBar position="sticky" sx={{ backgroundColor: "#424242" }}>
+        <Toolbar
+          sx={{ justifyContent: isMobile ? "flex-start" : "space-between", alignItems: "center" }}
+        >
+          {isMobile ? (
+            <>
+              <IconButton
+                edge="start"
+                color="white"
+                onClick={handleDrawerToggle}
+              >
+                <MenuIcon sx={{ fill: "white"}}/>
+              </IconButton>
+
+              <Typography sx={{color: "white", marginLeft: "1rem" }}>
+              Emilio Bielanski
+              </Typography>
+
+              <Drawer
+                anchor="left"
+                open={drawerOpen}
+                onClose={handleDrawerToggle}
+              >
+                {drawerContent}
+              </Drawer>
+            </>
+          ) : (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
               <Button>
                 <Link to="landing" smooth={true} duration={500}>
                   <Typography color="white">Emilio Bielanski</Typography>
                 </Link>
               </Button>
-            </Grid2>
 
-            <Grid2 container gap={10} >
-              {navItems.map(({ label, to }, index) => (
-                <Box key={index}>
-                  <Button sx={{ textTransform: "none", fontSize: "1rem", "&:hover": {textDecoration: "4px underline grey"} }}>
+              <Box sx={{ display: "flex", gap: 3 }}>
+                {navItems.map(({ label, to }, index) => (
+                  <Button
+                    key={index}
+                    sx={{ "&:hover": { textDecoration: "4px underline grey" } }}
+                  >
                     <Link to={to} smooth={true} duration={500}>
                       <Typography color="white">{label}</Typography>
                     </Link>
                   </Button>
-                </Box>
-              ))}
-            </Grid2>
+                ))}
+              </Box>
 
-            <SocialLinks />
-          </Grid2>
+              <SocialLinks />
+            </Box>
+          )}
         </Toolbar>
       </AppBar>
     </ThemeProvider>
